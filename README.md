@@ -1,2 +1,4 @@
 # odin-calculator
-Final project of The Odin Project foundations curricullum 
+This project based on The Odin Project foundations curricullum.
+It make simple calculator using html, css and javascript.
+
