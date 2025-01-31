@@ -1,17 +1,29 @@
 #container {
     width: 400px;
+    height: 550px;
+    border: 8px solid cornflowerblue;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 #display {
-    border: 2px solid black ;
-    height: 36px;
+    border: 2px solid cornflowerblue ;
+    
+    height: 50px;
     margin-bottom: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.horizontal-container {
+    display: flex;
+    flex: 1;
 }
 
 .number, #negate, #comma,
 .operator {
-    width: 80px;
-    height: 80px;
+   flex: 1;
 }
 
 
