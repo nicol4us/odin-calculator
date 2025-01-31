@@ -1,3 +1,9 @@
+h2 {
+    text-align: center;
+   
+    font-size: 36px;
+}
+
 #container {
     width: 400px;
     height: 550px;
@@ -5,13 +11,14 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
+    background-color:cornflowerblue;
 }
 
 #display {
     border: 2px solid cornflowerblue ;
-    
+    background-color: white;
     height: 50px;
-    margin-bottom: 8px;
+    margin-bottom: 36px;
     margin-left: 8px;
     margin-right: 8px;
 }
@@ -21,9 +28,20 @@
     flex: 1;
 }
 
-.number, #negate, #comma,
+.number, #negate, #comma, #backspace, #clear,
 .operator {
+   
    flex: 1;
+   background-color: rgb(142, 178, 246);
+   border-radius: 8px;
+   font-size: 24px;
+}
+
+#clear {
+    flex-grow: 1;
+}
+#backspace {
+    flex-grow: 2.2;
 }
 
 
