@@ -21,6 +21,8 @@ h2 {
     margin-bottom: 36px;
     margin-left: 8px;
     margin-right: 8px;
+    text-align: left;
+    font-size: 36px;
 }
 
 .horizontal-container {
