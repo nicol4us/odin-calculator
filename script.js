@@ -1,5 +1,6 @@
 
 // Constant declaration
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++
-const numbersButton = Array.from(document.querySelectorAll(".number"));
-console.log(numbersButton);
+const allNumbersButton = Array.from(document.querySelectorAll(".number"));
+const allOperatorButton = Array.from(document.querySelectorAll(".function"));
+const display = document.querySelector("#display");
