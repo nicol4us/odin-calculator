@@ -19,12 +19,12 @@ let secondNumber = {value : "", isActive : false};
 // Functions Declarations
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// (ArrayButtonElement, Object, Object, divElement) -> ()
+// (ArrayButtonElement, Object, Object, Object, divElement) -> ()
 // To active click button on Number and show it in display
-function setNumbersListener(arrayNumber, firstNumber, secondNumber, displayElement) {
+function setNumbersListener(arrayNumber, firstNumber, secondNumber, operator, displayElement) {
     arrayNumber.forEach(element => {
         element.addEventListener("click", function() {
-            setNumberToDisplay(whichActive(firstNumber, secondNumber), element, displayElement)
+            setNumber(whichActive(firstNumber, secondNumber), element);
         })
     });
 }
@@ -35,3 +35,8 @@ function whichActive(firstNumber, secondNumber) {
     return (secondNumber.isActive) ? secondNumber : firstNumber;
 }
 
+// (Object, buttonElement) -> ()
+// To add number into display
+function setNumberToDisplay(number, element) {
+    number[value] = number[value] + element.textContent
+}
