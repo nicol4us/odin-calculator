@@ -19,13 +19,19 @@ let secondNumber = {value : "", isActive : false};
 // Functions Declarations
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// (ArrayButtonElement, Object, Object, Object, divElement) -> ()
+// (ArrayButtonElement, Object, Object, divElement) -> ()
 // To active click button on Number and show it in display
 function setNumbersListener(arrayNumber, firstNumber, secondNumber, displayElement) {
     arrayNumber.forEach(element => {
         element.addEventListener("click", function() {
-            setNumberToDisplay(checkFirstNumberAndSecondNumber(firstNumber, secondNumber), element, displayElement)
+            setNumberToDisplay(whichActive(firstNumber, secondNumber), element, displayElement)
         })
     });
+}
+
+// (Object, Object) -> Object
+// Return which object is active
+function whichActive(firstNumber, secondNumber) {
+    return (secondNumber.isActive) ? secondNumber : firstNumber;
 }
 
