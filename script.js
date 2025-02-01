@@ -21,7 +21,7 @@ let secondNumber = {value : "", isActive : false};
 
 // (ArrayButtonElement, Object, Object, Object, divElement) -> ()
 // To active click button on Number and show it in display
-function setNumbersCalculatorListener(arrayNumber, firstNumber, secondNumber, displayElement) {
+function setNumbersListener(arrayNumber, firstNumber, secondNumber, displayElement) {
     arrayNumber.forEach(element => {
         element.addEventListener("click", function() {
             setNumberToDisplay(checkFirstNumberAndSecondNumber(firstNumber, secondNumber), element, displayElement)
