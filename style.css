@@ -37,12 +37,13 @@ h2 {
    font-size: 24px;
 }
 
-#clear {
-    flex-grow: 1;
-}
+
 #backspace {
-    flex-grow: 2.2;
+    flex-grow: 2.18;
 }
 
+#clear, #backspace, .operator {
+    background-color: goldenrod;
+}
 
     
