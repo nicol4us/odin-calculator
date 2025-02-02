@@ -25,6 +25,9 @@ function setNumbersListener(arrayNumber, firstNumber, secondNumber, operator, di
     arrayNumber.forEach(element => {
         element.addEventListener("click", function() {
             setNumber(whichActive(firstNumber, secondNumber), element);
+            console.log(firstNumber);
+            displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
+            
         })
     });
 }
@@ -37,6 +40,14 @@ function whichActive(firstNumber, secondNumber) {
 
 // (Object, buttonElement) -> ()
 // To add number into display
-function setNumberToDisplay(number, element) {
-    number[value] = number[value] + element.textContent
+function setNumber(number, element) {
+    number.value = number.value + element.textContent;
 }
+
+
+// (Object, Object, Object) -> String
+// To concatenate all string value object and return it
+function displayAll(firstNumber, operator, secondNumber) {
+    return firstNumber.value + operator.value + secondNumber.value;
+}
+
