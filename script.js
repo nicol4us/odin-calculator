@@ -24,8 +24,7 @@ let secondNumber = {value : "", isActive : false};
 function setNumbersListener(arrayNumber, firstNumber, secondNumber, operator, displayElement) {
     arrayNumber.forEach(element => {
         element.addEventListener("click", function() {
-            setNumber(whichActive(firstNumber, secondNumber), element);
-            console.log(firstNumber);
+            setNumber(whichActive(firstNumber, secondNumber), element);            
             displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
             
         })
@@ -51,3 +50,15 @@ function displayAll(firstNumber, operator, secondNumber) {
     return firstNumber.value + operator.value + secondNumber.value;
 }
 
+// (ArrayButtonElement, Object, Object, Object, divElement) -> ()
+// To active click button on Number and show it in display
+function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
+    arrayOperator.forEach(element => {
+        element.addEventListener("click", function() {
+            
+        })
+    })
+}
+
+
+setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
