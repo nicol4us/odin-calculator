@@ -55,9 +55,20 @@ function displayAll(firstNumber, operator, secondNumber) {
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
     arrayOperator.forEach(element => {
         element.addEventListener("click", function() {
-            
+            setOperation(firstNumber, operator, secondNumber, element);
         })
     })
+}
+
+// (Object, Object, Object, buttonElement) -> ()
+// To set function for each operator and display it if neccassery
+function setOperation(firstNumber, operator, secondNumber, buttonElement) {
+    if(operator.isActive && secondNumber.isActive) {
+        setVariabe(calculate(firstNumber, operator,secondNumber), buttonElement);       
+    }
+    else if (firstNumber.isActive && !operator.isActive ){
+        //???????
+    }
 }
 
 
