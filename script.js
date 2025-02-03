@@ -55,23 +55,14 @@ function displayAll(firstNumber, operator, secondNumber) {
 // (ArrayButtonElement, Object, Object, Object, divElement) -> ()
 // To active click button on Number and show it in display
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
-    arrayOperator.forEach(element => {
-        element.addEventListener("click", function() {
-            setOperation(firstNumber, operator, secondNumber, element.textContent);
+    arrayOperator.forEach(button => {
+        button.addEventListener("click", function() {
+            (operator.isActive && secondNumber.isActive) ? calculate(button.textContent, firstNumber, secondNumber) : setVariable(firstNumber,operator, button.textContent);
             displayElement.textContent = displayAll(firstNumber,operator, secondNumber);
         })
     })
 }
 
-// (Object, Object, Object, String) -> ()
-// To set function for each operator and display it if neccassery
-function setOperation(firstNumber, operator, secondNumber, typeOperator) {
-    switch(typeOperator) {
-        case "x":
-            (operator.isActive) ? calculate(firstNumber.value, operator.value, secondNumber.value) : setVariableOperation(operator, "x");
-            break;
-    }
-}
 
 
 setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
