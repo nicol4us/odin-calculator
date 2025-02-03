@@ -77,7 +77,7 @@ function calculate(typeOperator, firstNumber, operator, secondNumber) {
             setVariableStatus(add(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
             break;
         case "-":
-            setVariableStatus(sbustract(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
+            setVariableStatus(substract(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
             break;
     }
 
@@ -129,3 +129,4 @@ function substract(firstNumber, secondNumber) {
 }
 
 setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
+setOperatorListener(allOperatorButton,firstNumber, secondNumber, operator,display);
