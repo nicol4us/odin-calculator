@@ -5,8 +5,9 @@ const allNumbersButton = Array.from(document.querySelectorAll(".number"));
 const allOperatorButton = Array.from(document.querySelectorAll(".operator"));
 const display = document.querySelector("#display");
 const clearButton = document.querySelector("#clear");
-const backspaceButton = document.querySelector("#backspace");
-
+const backspaceButton = document.querySelector("#backspace"); 
+const negateButton = document.querySelector("#negate");
+const commaButton = document.querySelector("#comma");
 
 
 // Variable Declarations
