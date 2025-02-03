@@ -57,19 +57,19 @@ function displayAll(firstNumber, operator, secondNumber) {
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
     arrayOperator.forEach(element => {
         element.addEventListener("click", function() {
-            setOperation(firstNumber, operator, secondNumber, element);
+            setOperation(firstNumber, operator, secondNumber, element.textContent);
+            displayElement.textContent = displayAll(firstNumber,operator, secondNumber);
         })
     })
 }
 
-// (Object, Object, Object, buttonElement) -> ()
+// (Object, Object, Object, String) -> ()
 // To set function for each operator and display it if neccassery
-function setOperation(firstNumber, operator, secondNumber, buttonElement) {
-    if(operator.isActive && secondNumber.isActive) {
-        setVariabe(calculate(firstNumber, operator,secondNumber), buttonElement);       
-    }
-    else if (firstNumber.isActive && !operator.isActive ){
-        //???????
+function setOperation(firstNumber, operator, secondNumber, typeOperator) {
+    switch(typeOperator) {
+        case "x":
+            (operator.isActive) ? calculate(firstNumber.value, operator.value, secondNumber.value) : setVariableOperation(operator, "x");
+            break;
     }
 }
 
