@@ -86,7 +86,7 @@ function calculate(typeOperator, firstNumber, operator, secondNumber) {
 // (Float, Object, Object, Object) -> ()
 // To update variable of firstNumber, operator and secondNumber
 function setVariableStatus(number, firstNumber, operator, secondNumber) {
-    firstNumber.value = number;
+    firstNumber.value = number.toFixed(4);
     firstNumber.isActive = false;
     operator.value = ""
     operator.isActive = false;
@@ -101,6 +101,12 @@ function setOperator(firstNumber, operator, secondNumber, typeOperator) {
     operator.value = typeOperator;
     operator.isActive = true;
     secondNumber.isActive = true;
+}
+
+// (String, String) -> Float
+// To multiply two number given a string
+function multiply(firstNumber, secondNumber) {
+    return Number.parseFloat(firstNumber) * Number.parseFloat(secondNumber);
 }
 
 
