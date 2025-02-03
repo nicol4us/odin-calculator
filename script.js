@@ -57,7 +57,7 @@ function displayAll(firstNumber, operator, secondNumber) {
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
     arrayOperator.forEach(button => {
         button.addEventListener("click", function() {
-            (operator.isActive && secondNumber.isActive) ? calculate(operator.value, firstNumber,operator, secondNumber) : setVariable(firstNumber,operator, button.textContent);
+            (operator.isActive && secondNumber.isActive) ? calculate(operator.value, firstNumber,operator, secondNumber) : setOperator(firstNumber,operator,secondNumber,button.textContent);
             displayElement.textContent = displayAll(firstNumber,operator, secondNumber);
         })
     })
@@ -92,6 +92,15 @@ function setVariableStatus(number, firstNumber, operator, secondNumber) {
     operator.isActive = false;
     secondNumber.value = "";
     secondNumber.isActive = false
+}
+
+// (Object, Object, Object, String) -> ()
+// To update variable of firstNumber, operator and secondNumber
+function setOperator(firstNumber, operator, secondNumber, typeOperator) {
+    firstNumber.isActive = false;
+    operator.value = typeOperator;
+    operator.isActive = true;
+    secondNumber.isActive = true;
 }
 
 
