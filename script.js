@@ -63,6 +63,18 @@ function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator,
     })
 }
 
+// (String, Object, Object) -> ()
+// To calculate two Object according to the type of operator calculation a
+function calculate(typeOperator, firstNumber, secondNumber) {
+    switch(typeOperator) {
+        case "x":
+            firstNumber.value = multiply(firstNumber.value, secondNumber.value);
+            firstNumber.isActive = false;
+            break;
+    }
+
+}
+
 
 
 setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
