@@ -2,9 +2,10 @@
 // Constant Declaration
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++
 const allNumbersButton = Array.from(document.querySelectorAll(".number"));
-const allOperatorButton = Array.from(document.querySelectorAll(".function"));
+const allOperatorButton = Array.from(document.querySelectorAll(".operator"));
 const display = document.querySelector("#display");
-
+const clearButton = document.querySelector("#clear");
+const backspaceButton = document.querySelector("#backspace");
 
 
 
