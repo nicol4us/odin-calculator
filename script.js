@@ -109,5 +109,23 @@ function multiply(firstNumber, secondNumber) {
     return Number.parseFloat(firstNumber) * Number.parseFloat(secondNumber);
 }
 
+// (String, String) -> Float
+// To divide two number given a string
+function divide(firstNumber, secondNumber) {
+    return Number.parseFloat(firstNumber) / Number.parseFloat(secondNumber);
+}
+
+
+// (String, String) -> Float
+// To add two number given a string
+function add(firstNumber, secondNumber) {
+    return Number.parseFloat(firstNumber) + Number.parseFloat(secondNumber);
+}
+
+// (String, String) -> Float
+// To add two number given a string
+function substract(firstNumber, secondNumber) {
+    return Number.parseFloat(firstNumber) - Number.parseFloat(secondNumber);
+}
 
 setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
