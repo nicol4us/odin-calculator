@@ -57,24 +57,42 @@ function displayAll(firstNumber, operator, secondNumber) {
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
     arrayOperator.forEach(button => {
         button.addEventListener("click", function() {
-            (operator.isActive && secondNumber.isActive) ? calculate(button.textContent, firstNumber, secondNumber) : setVariable(firstNumber,operator, button.textContent);
+            (operator.isActive && secondNumber.isActive) ? calculate(operator.value, firstNumber,operator, secondNumber) : setVariable(firstNumber,operator, button.textContent);
             displayElement.textContent = displayAll(firstNumber,operator, secondNumber);
         })
     })
 }
 
-// (String, Object, Object) -> ()
+// (String, Object, Object, Object) -> ()
 // To calculate two Object according to the type of operator calculation a
-function calculate(typeOperator, firstNumber, secondNumber) {
+function calculate(typeOperator, firstNumber, operator, secondNumber) {
     switch(typeOperator) {
         case "x":
-            firstNumber.value = multiply(firstNumber.value, secondNumber.value);
-            firstNumber.isActive = false;
+            setVariableStatus(multiply(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);            
+            break;
+        case "/":
+            setVariableStatus(divide(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
+            break;
+        case "+":
+            setVariableStatus(add(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
+            break;
+        case "-":
+            setVariableStatus(sbustract(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
             break;
     }
 
 }
 
+// (Float, Object, Object, Object) -> ()
+// To update variable of firstNumber, operator and secondNumber
+function setVariableStatus(number, firstNumber, operator, secondNumber) {
+    firstNumber.value = number;
+    firstNumber.isActive = false;
+    operator.value = ""
+    operator.isActive = false;
+    secondNumber.value = "";
+    secondNumber.isActive = false
+}
 
 
 setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
