@@ -118,10 +118,17 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
 // (Object, Object, Object, String) -> ()
 // To update variable of firstNumber, operator and secondNumber
 function setOperator(firstNumber, operator, secondNumber, typeOperator) {
-    firstNumber.isActive = false;
-    operator.value = typeOperator;
-    operator.isActive = true;
-    secondNumber.isActive = true;
+    if(typeOperator === "=") {
+        operator.value = "";
+        operator.isActive = false;
+
+    }
+    else {
+        firstNumber.isActive = false;
+        operator.value = typeOperator;
+        operator.isActive = true;
+        secondNumber.isActive = true;
+    }
 }
 
 // (String, String) -> Float
