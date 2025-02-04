@@ -150,7 +150,7 @@ function substract(firstNumber, secondNumber) {
 }
 
 
-// (buttonElement, divElement, Object, Object, Object)
+// (buttonElement, divElement, Object, Object, Object) -> ()
 // To reset all Object into initial value
 function clearButtonListener(button, displayElement, firstNumber, operator, secondNumber) {
     button.addEventListener("click", function() {
@@ -163,6 +163,19 @@ function clearButtonListener(button, displayElement, firstNumber, operator, seco
         displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
     })
 }
+
+
+// (buttonElement, divElement, Object, Object, Object) -> ()
+// To negate number
+function negateButtonListener(button, displayElement, firstNumber, operator, secondNumber) {
+    button.addEventListener("click", function() {
+        negateNumber(whichActive(firstNumber, secondNumber));
+        displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
+    })
+}
+
+
+
 
 // Function Call Execution
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
