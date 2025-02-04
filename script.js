@@ -98,7 +98,7 @@ function calculate(typeOperator, firstNumber, operator, secondNumber, nextOperat
 // To update variable of firstNumber, operator and secondNumber
 function setVariableStatus(number, firstNumber, operator, secondNumber, nextOperator) {
     if(nextOperator === "=") {
-        firstNumber.value = number.toFixed(4);
+        firstNumber.value = number;
         firstNumber.isActive = false;
         operator.value = ""
         operator.isActive = false;
@@ -106,7 +106,7 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
         secondNumber.isActive = false;
     }
     else {
-        firstNumber.value = number.toFixed(4);
+        firstNumber.value = number;
         firstNumber.isActive = false;
         operator.value = nextOperator
         operator.isActive = true;
