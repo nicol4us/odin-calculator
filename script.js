@@ -57,7 +57,7 @@ function displayAll(firstNumber, operator, secondNumber) {
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
     arrayOperator.forEach(button => {
         button.addEventListener("click", function() {
-            (operator.isActive && secondNumber.isActive) ? calculate(operator.value, firstNumber,operator, secondNumber) : setOperator(firstNumber,operator,secondNumber,button.textContent);
+            (operator.isActive && secondNumber.isActive) ? calculate(operator.value, firstNumber,operator, secondNumber, button.textContent) : setOperator(firstNumber,operator,secondNumber,button.textContent);
             displayElement.textContent = displayAll(firstNumber,operator, secondNumber);
         })
     })
@@ -65,19 +65,19 @@ function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator,
 
 // (String, Object, Object, Object) -> ()
 // To calculate two Object according to the type of operator calculation a
-function calculate(typeOperator, firstNumber, operator, secondNumber) {
+function calculate(typeOperator, firstNumber, operator, secondNumber, nextOperator) {
     switch(typeOperator) {
         case "x":
-            setVariableStatus(multiply(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);            
+            setVariableStatus(multiply(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber, nextOperator);            
             break;
         case "/":
-            setVariableStatus(divide(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
+            setVariableStatus(divide(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber, nextOperator);
             break;
         case "+":
-            setVariableStatus(add(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
+            setVariableStatus(add(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber, nextOperator);
             break;
         case "-":
-            setVariableStatus(substract(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber);
+            setVariableStatus(substract(firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber, nextOperator);
             break;
     }
 
@@ -85,13 +85,23 @@ function calculate(typeOperator, firstNumber, operator, secondNumber) {
 
 // (Float, Object, Object, Object) -> ()
 // To update variable of firstNumber, operator and secondNumber
-function setVariableStatus(number, firstNumber, operator, secondNumber) {
-    firstNumber.value = number.toFixed(4);
-    firstNumber.isActive = false;
-    operator.value = ""
-    operator.isActive = false;
-    secondNumber.value = "";
-    secondNumber.isActive = false
+function setVariableStatus(number, firstNumber, operator, secondNumber, nextOperator) {
+    if(nextOperator === "=") {
+        firstNumber.value = number.toFixed(4);
+        firstNumber.isActive = false;
+        operator.value = ""
+        operator.isActive = false;
+        secondNumber.value = "";
+        secondNumber.isActive = false;
+    }
+    else {
+        firstNumber.value = number.toFixed(4);
+        firstNumber.isActive = false;
+        operator.value = nextOperator
+        operator.isActive = true;
+        secondNumber.value = "";
+        secondNumber.isActive = true;
+    }
 }
 
 // (Object, Object, Object, String) -> ()
