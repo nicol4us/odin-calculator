@@ -57,10 +57,21 @@ function displayAll(firstNumber, operator, secondNumber) {
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
     arrayOperator.forEach(button => {
         button.addEventListener("click", function() {
-            (operator.isActive && secondNumber.isActive) ? calculate(operator.value, firstNumber,operator, secondNumber, button.textContent) : setOperator(firstNumber,operator,secondNumber,button.textContent);
+            setOperationLogic(operator.value,firstNumber,operator,secondNumber,button.textContent)
             displayElement.textContent = displayAll(firstNumber,operator, secondNumber);
         })
     })
+}
+
+// (String, Object, Object, Object, String)
+// To set condition for mathematical operation to work
+function setOperationLogic(operatorType, firstNumber, operator, secondNumber, nextOperator){
+    if(operator.isActive && secondNumber.isActive) {
+        calculate(operatorType, firstNumber,operator, secondNumber, nextOperator)
+    }
+    else {
+        setOperator(firstNumber,operator,secondNumber,nextOperator);
+    }
 }
 
 // (String, Object, Object, Object) -> ()
