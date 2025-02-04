@@ -149,5 +149,24 @@ function substract(firstNumber, secondNumber) {
     return Number.parseFloat(firstNumber) - Number.parseFloat(secondNumber);
 }
 
+
+// (buttonElement, divElement, Object, Object, Object)
+// To reset all Object into initial value
+function clearButtonListener(button, displayElement, firstNumber, operator, secondNumber) {
+    button.addEventListener("click", function() {
+        firstNumber.value = "";
+        firstNumber.isActive = true;
+        operator.value = "";
+        operator.isActive = false;
+        secondNumber.value = "";
+        secondNumber.isActive = false;
+        displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
+    })
+}
+
+// Function Call Execution
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
 setOperatorListener(allOperatorButton,firstNumber, secondNumber, operator,display);
+clearButtonListener(clearButton, display,firstNumber, operator, secondNumber);
