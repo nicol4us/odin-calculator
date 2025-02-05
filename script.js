@@ -113,7 +113,7 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
         operator.value = nextOperator
         operator.isActive = true;
         secondNumber.value = "";
-        secondNumber.isActive = true;
+        secondNumber.isActive = false;
     }
 }
 
