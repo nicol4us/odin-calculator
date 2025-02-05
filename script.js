@@ -57,7 +57,7 @@ function displayAll(firstNumber, operator, secondNumber) {
 function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator, displayElement) {
     arrayOperator.forEach(button => {
         button.addEventListener("click", function() {
-            setOperationLogic(operator.value,firstNumber,operator,secondNumber,button.textContent)
+            setOperationLogic(operator.value,firstNumber,operator,secondNumber,button.textContent, displayElement)
             displayElement.textContent = displayAll(firstNumber,operator, secondNumber);
         })
     })
@@ -65,12 +65,14 @@ function setOperatorListener(arrayOperator, firstNumber, secondNumber, operator,
 
 // (String, Object, Object, Object, String)
 // To set condition for mathematical operation to work
-function setOperationLogic(operatorType, firstNumber, operator, secondNumber, nextOperator){
+function setOperationLogic(operatorType, firstNumber, operator, secondNumber, nextOperator, displayElement){
     if(operator.isActive && secondNumber.isActive) {
         calculate(operatorType, firstNumber,operator, secondNumber, nextOperator)
     }
+    else if(firstNumber.isActive&& firstNumber.value.length > 0) {
+        setOperator(firstNumber,operator,secondNumber,nextOperator);    }
     else {
-        setOperator(firstNumber,operator,secondNumber,nextOperator);
+        displayElement.textContent = "ERORR";
     }
 }
 
@@ -122,7 +124,7 @@ function setOperator(firstNumber, operator, secondNumber, typeOperator) {
         operator.value = "";
         operator.isActive = false;
 
-    }
+    }    
     else {
         firstNumber.isActive = false;
         operator.value = typeOperator;
