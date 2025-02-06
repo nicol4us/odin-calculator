@@ -202,6 +202,7 @@ function clearButtonListener(button, displayElement, firstNumber, operator, seco
 function negateButtonListener(button, displayElement, firstNumber, operator, secondNumber) {
     button.addEventListener("click", function() {
         negateNumber(whichActive(firstNumber, secondNumber));
+
         displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
     })
 }
@@ -210,7 +211,7 @@ function negateButtonListener(button, displayElement, firstNumber, operator, sec
 // (object) -> ()
 // To negate number
 function negateNumber(numberObject) {
-    numberObject.value = Number.parseFloat(numberObject.value) * -1;
+    numberObject.value = (Number.parseFloat(numberObject.value) * -1).toString();
 }
 
 
