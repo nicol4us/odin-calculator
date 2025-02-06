@@ -36,7 +36,15 @@ function setNumbersListener(arrayNumber, firstNumber, secondNumber, operator, di
 // (Object, Object) -> Object
 // Return which object is active
 function whichActive(firstNumber, secondNumber) {
-    return (secondNumber.isActive) ? secondNumber : firstNumber;
+    switch(true) {
+        if(firstNumber.isActive) {
+            return firstNumber;
+        }
+        else if (secondNumber.isActive) {
+            return secondNumber;
+        }
+        else return null;
+    }
 }
 
 // (Object, buttonElement) -> ()
