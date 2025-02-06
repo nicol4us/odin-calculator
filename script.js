@@ -103,7 +103,7 @@ function calculate(firstNumber, operator, secondNumber, nextOperator) {
 // (Float, Object, Object, Object) -> ()
 // To update variable of firstNumber, operator and secondNumber
 function setVariableStatus(number, firstNumber, operator, secondNumber, nextOperator) {
-    if(nextOperator === "=") {
+    if(nextOperator.length === 0) {
         firstNumber.value = number;
         firstNumber.isActive = false;
         operator.value = ""
@@ -122,21 +122,21 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
 }
 
 // (String, String, String) -> Number
-// To compute two number given string accroding to type of operation
+// To compute two number given string accroding to type of operation and return it as number
 function operate(operatorType, firstNumber, secondNumber) {
     switch(operatorType) {
         case "x":
-            multiply(firstNumber, secondNumber);
-            break;
+            return multiply(firstNumber, secondNumber);
+            
         case "/":
-            divide(firstNumber, secondNumber);
-            break;
+            return divide(firstNumber, secondNumber);
+            
         case "+":
-            add(firstNumber, secondNumber);
-            break;
+            return add(firstNumber, secondNumber);
+            
         case "-":
-            substract(firstNumber, secondNumber);
-            break;
+            return substract(firstNumber, secondNumber);
+            
     }
 }
 
