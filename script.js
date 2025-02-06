@@ -121,6 +121,25 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
     }
 }
 
+// (String, String, String) -> Number
+// To compute two number given string accroding to type of operation
+function operate(operatorType, firstNumber, secondNumber) {
+    switch(operatorType) {
+        case "x":
+            multiply(firstNumber, secondNumber);
+            break;
+        case "/":
+            divide(firstNumber, secondNumber);
+            break;
+        case "+":
+            add(firstNumber, secondNumber);
+            break;
+        case "-":
+            substract(firstNumber, secondNumber);
+            break;
+    }
+}
+
 // (Object, Object, Object, String) -> ()
 // To update variable of firstNumber, operator and secondNumber
 function setOperator(firstNumber, operator, secondNumber, typeOperator) {
