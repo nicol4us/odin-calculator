@@ -35,22 +35,25 @@ function setNumbersListener(arrayNumber, firstNumber, secondNumber, operator, di
 
 // (Object, Object) -> Object
 // Return which object is active
-function whichActive(firstNumber, secondNumber) {
-    switch(true) {
+function whichActive(firstNumber, secondNumber) {    
         if(firstNumber.isActive) {
             return firstNumber;
         }
         else if (secondNumber.isActive) {
             return secondNumber;
         }
-        else return null;
-    }
+        else return null;    
 }
 
 // (Object, buttonElement) -> ()
 // To add number into display
 function setNumber(number, element) {
-    number.value = number.value + element.textContent;
+    if(number === null || number === undefined) {
+        number.value = number.value ;
+    }
+    else {
+        number.value = number.value + element.textContent;
+    }
 }
 
 
