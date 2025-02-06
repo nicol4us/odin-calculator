@@ -70,8 +70,8 @@ function setOperationLogic(firstNumber, operator, secondNumber, nextOperator, di
     if(operator.isActive && secondNumber.isActive && secondNumber.value.length > 0) {
         calculate(firstNumber,operator, secondNumber, nextOperator)
     }
-    else if(firstNumber.isActive&& firstNumber.value.length > 0) {
-        setOperator(firstNumber,operator,secondNumber,nextOperator);    }
+    else if(firstNumber.isActive&& firstNumber.value.length > 0 || !firstNumber.isActive && !operator.isActive) {
+        setOperator(firstNumber,operator,secondNumber,nextOperator);    }      
     else {
         displayElement.textContent = "ERORR";
     }
