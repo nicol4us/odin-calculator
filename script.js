@@ -109,11 +109,13 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
     }
     else {
         firstNumber.value = number;
+        console.log(firstNumber.value)
         firstNumber.isActive = false;
+        console.log(firstNumber.isActive)
         operator.value = nextOperator
         operator.isActive = true;
         secondNumber.value = "";
-        secondNumber.isActive = false;
+        secondNumber.isActive = true;
     }
 }
 
