@@ -12,9 +12,9 @@ const commaButton = document.querySelector("#comma");
 
 // Variable Declarations
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++
-let firstNumber = {value : "", isActive : true};
+let firstNumber = {value : "", isActive : true, isCommaOn : false};
 let operator = {value: "", isActive : false};
-let secondNumber = {value : "", isActive : false};
+let secondNumber = {value : "", isActive : false, isCommaOn : false};
 
 
 
