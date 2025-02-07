@@ -136,7 +136,7 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
     }
 }
 
-// (String, String, String) -> Number
+// (String, String, String) -> String
 // To compute two number given string accroding to type of operation and return it as number
 function operate(operatorType, firstNumber, secondNumber) {
     switch(operatorType) {
@@ -254,6 +254,18 @@ function setCommaButton(objectNumber, button) {
     }
 }
 
+// (Number, Number) -> String
+// To round number for long decimal
+function roundNumber(number, precision) {
+    let result = number.toString().split(".");
+    if(result[1].length > precision) {
+        return number.toFixed(precision);
+    }
+    else {
+        return number;
+    }
+
+}
 
 
 // Function Call Execution
