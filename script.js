@@ -239,8 +239,7 @@ function commaButtonListener(button, displayElement, firstNumber, operator, seco
 // To set comma status into True  and disable the button to prevent unneccesary click
 function setCommaButton(objectNumber, button) {
     if(!objectNumber.isCommaOn) {
-        objectNumber.isCommaOn = true;
-        button.disabled = true;
+        objectNumber.isCommaOn = true;        
         objectNumber.value = objectNumber.value + button.textContent;
     }
     else {
