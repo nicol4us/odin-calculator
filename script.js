@@ -117,18 +117,22 @@ function setVariableStatus(number, firstNumber, operator, secondNumber, nextOper
     if(nextOperator.length === 0) {
         firstNumber.value = number;
         firstNumber.isActive = false;
+        firstNumber.isCommaOn = true;
         operator.value = ""
         operator.isActive = false;
         secondNumber.value = "";
         secondNumber.isActive = false;
+        secondNumber.isCommaOn = false;
     }
     else {
         firstNumber.value = number;        
-        firstNumber.isActive = false;        
+        firstNumber.isActive = false; 
+        firstNumber.isCommaOn = true;       
         operator.value = nextOperator
         operator.isActive = true;
         secondNumber.value = "";
         secondNumber.isActive = true;
+        secondNumber.isCommaOn = false;
     }
 }
 
@@ -161,9 +165,11 @@ function setOperator(firstNumber, operator, secondNumber, typeOperator) {
     }    
     else {
         firstNumber.isActive = false;
+        firstNumber.isCommaOn = true;
         operator.value = typeOperator;
         operator.isActive = true;
         secondNumber.isActive = true;
+        secondNumber.isCommaOn = false;
     }
 }
 
@@ -199,10 +205,12 @@ function clearButtonListener(button, displayElement, firstNumber, operator, seco
     button.addEventListener("click", function() {
         firstNumber.value = "";
         firstNumber.isActive = true;
+        firstNumber.isCommaOn = false;
         operator.value = "";
         operator.isActive = false;
         secondNumber.value = "";
         secondNumber.isActive = false;
+        secondNumber.isCommaOn = false;
         displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
     })
 }
@@ -213,7 +221,6 @@ function clearButtonListener(button, displayElement, firstNumber, operator, seco
 function negateButtonListener(button, displayElement, firstNumber, operator, secondNumber) {
     button.addEventListener("click", function() {
         negateNumber(whichActive(firstNumber, secondNumber));
-
         displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
     })
 }
