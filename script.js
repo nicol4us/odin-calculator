@@ -226,12 +226,26 @@ function negateNumber(numberObject) {
 }
 
 
-// (buttonElement, divElement, Object, Object)
+// (buttonElement, divElement, Object, Object, Object)
 // To add event listener into comma button
-function commaButtonListener(button, displayElement, firstNumber, secondNumber) {
+function commaButtonListener(button, displayElement, firstNumber, operator, secondNumber) {
     button.addEventListener("click", function() {
-        setComma(whichActive(firstNumber,secondNumber));
+        setCommaButton(whichActive(firstNumber,secondNumber), button);
+        displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
     })
+}
+
+// (Object, button) -> ()
+// To set comma status into True  and disable the button to prevent unneccesary click
+function setCommaButton(objectNumber, button) {
+    if(!objectNumber.isCommaOn) {
+        objectNumber.isCommaOn = true;
+        button.disabled = true;
+        objectNumber.value = objectNumber.value + button.textContent;
+    }
+    else {
+        objectNumber.value = objectNumber.value;
+    }
 }
 
 
@@ -243,3 +257,4 @@ setNumbersListener(allNumbersButton,firstNumber,secondNumber,operator,display);
 setOperatorListener(allOperatorButton,firstNumber, secondNumber, operator,display);
 clearButtonListener(clearButton, display,firstNumber, operator, secondNumber);
 negateButtonListener(negateButton,display,firstNumber,operator, secondNumber);
+commaButtonListener(commaButton,display,firstNumber, operator, secondNumber);
