@@ -209,7 +209,7 @@ function clearButtonListener(button, displayElement, firstNumber, operator, seco
 
 
 // (buttonElement, divElement, Object, Object, Object) -> ()
-// To add event listner into negate button
+// To add event listener into negate button
 function negateButtonListener(button, displayElement, firstNumber, operator, secondNumber) {
     button.addEventListener("click", function() {
         negateNumber(whichActive(firstNumber, secondNumber));
@@ -224,6 +224,16 @@ function negateButtonListener(button, displayElement, firstNumber, operator, sec
 function negateNumber(numberObject) {
     numberObject.value = (Number.parseFloat(numberObject.value) * -1).toString();
 }
+
+
+// (buttonElement, divElement, Object, Object)
+// To add event listener into comma button
+function commaButtonListener(button, displayElement, firstNumber, secondNumber) {
+    button.addEventListener("click", function() {
+        setComma(whichActive(firstNumber,secondNumber));
+    })
+}
+
 
 
 // Function Call Execution
