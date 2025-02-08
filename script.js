@@ -176,26 +176,30 @@ function setOperator(firstNumber, operator, secondNumber, typeOperator) {
 // (String, String) -> Float
 // To multiply two number given a string
 function multiply(firstNumber, secondNumber) {
-    return Number.parseFloat(firstNumber) * Number.parseFloat(secondNumber);
+    const roundNumber = getRoundNumber("x", firstNumber, secondNumber);    
+    return (Number.parseFloat(firstNumber) * Number.parseFloat(secondNumber)).toFixed(roundNumber);
 }
 
 // (String, String) -> Float
 // To divide two number given a string
 function divide(firstNumber, secondNumber) {
-    return Number.parseFloat(firstNumber) / Number.parseFloat(secondNumber);
+    const roundNumber = getRoundNumber("/", firstNumber, secondNumber)    
+    return (Number.parseFloat(firstNumber) / Number.parseFloat(secondNumber)).toFixed(roundNumber);
 }
 
 
 // (String, String) -> Float
 // To add two number given a string
 function add(firstNumber, secondNumber) {
-    return Number.parseFloat(firstNumber) + Number.parseFloat(secondNumber);
+    const roundNumber = getRoundNumber("+", firstNumber, secondNumber)
+    return (Number.parseFloat(firstNumber) + Number.parseFloat(secondNumber)).toFixed(roundNumber);
 }
 
 // (String, String) -> Float
 // To add two number given a string
 function substract(firstNumber, secondNumber) {
-    return Number.parseFloat(firstNumber) - Number.parseFloat(secondNumber);
+    const roundNumber = getRoundNumber("-", firstNumber, secondNumber)    
+    return (Number.parseFloat(firstNumber) - Number.parseFloat(secondNumber)).toFixed(roundNumber);
 }
 
 
@@ -254,15 +258,22 @@ function setCommaButton(objectNumber, button) {
     }
 }
 
-// (Number, Number) -> String
-// To round number for long decimal
-function roundNumber(number, precision) {
-    let result = number.toString().split(".");
-    if(result[1].length > precision) {
-        return number.toFixed(precision);
-    }
-    else {
-        return number;
+// (String, String, String) -> Number
+// To round number for long decimal according to math operation
+function getRoundNumber(typeOperation, number1, number2) {
+    const getArrayNumberOne = number1.split(".");
+    const lengthFirst = getArrayNumberOne[1].length
+    const getArrayNumberTwo = number2.split(".");
+    const lengthSecond = getArrayNumberTwo[1].length
+    switch (typeOperation) {
+        case ("x"):
+            return lengthFirst + lengthSecond;
+        case ("/"):
+            return lengthFirst + lengthSecond;
+        case ("+"):
+            return (lengthFirst <= lengthSecond) ? lengthSecond : lengthFirst;
+        case ("-"):
+            return (lengthFirst <= lengthSecond) ? lengthSecond : lengthFirst;        
     }
 
 }
