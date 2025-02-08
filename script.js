@@ -262,9 +262,9 @@ function setCommaButton(objectNumber, button) {
 // To round number for long decimal according to math operation
 function getRoundNumber(typeOperation, number1, number2) {
     const getArrayNumberOne = number1.split(".");
-    const lengthFirst = getArrayNumberOne[1].length
+    const lengthFirst = (getArrayNumberOne[1] === undefined) ? 0 : getArrayNumberOne[1].length;
     const getArrayNumberTwo = number2.split(".");
-    const lengthSecond = getArrayNumberTwo[1].length
+    const lengthSecond = (getArrayNumberTwo[1] === undefined) ? 0 : getArrayNumberTwo[1].length;
     switch (typeOperation) {
         case ("x"):
             return lengthFirst + lengthSecond;
