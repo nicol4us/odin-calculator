@@ -51,6 +51,9 @@ function setNumber(number, element) {
     if(number === null || number === undefined) {
         number.value = number.value ;
     }
+    else if(number.value === "0" && element.textContent === "0") {
+        number.value = number.value;
+    }
     else {
         number.value = number.value + element.textContent;
     }
