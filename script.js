@@ -281,6 +281,15 @@ function getRoundNumber(typeOperation, number1, number2) {
 
 }
 
+// (button, divElement, Object, Object, Object) -> ()
+// To activate event listener click into Backspace button to remove one by one character in display
+function backSpaceButtonListener(button, display, firstNumber, operator, secondNumber) {
+    button.addEventListener("click", function() {
+        removeCharacter(firstNumber, operator, secondNumber);
+        display.textContent = displayAll(firstNumber,operator, secondNumber);
+    })
+}
+
 
 // Function Call Execution
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
