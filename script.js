@@ -291,6 +291,27 @@ function backSpaceButtonListener(button, display, firstNumber, operator, secondN
 }
 
 
+// (Object, Object, Object) -> ()
+// To set conditional to remove last character start from third object
+function removeCharacter(firstNumber, operator, secondNumber) {
+    switch(true) {
+        case(secondNumber.isActive && secondNumber.value.length > 0):
+            secondNumber.value = secondNumber.value.slice(0, -1);
+            break;
+        case(secondNumber.isActive && secondNumber.value.length === 0):
+            secondNumber.isActive = false;            
+            operator.value = operator.value.slice(0,-1);
+            operator.isActive = false;
+            firstNumber.isActive = true;            
+            break;        
+        case(firstNumber.isActive):            
+            firstNumber.value = firstNumber.value.slice(0,-1);
+            break;
+    }
+}
+
+
+
 // Function Call Execution
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -299,3 +320,4 @@ setOperatorListener(allOperatorButton,firstNumber, secondNumber, operator,displa
 clearButtonListener(clearButton, display,firstNumber, operator, secondNumber);
 negateButtonListener(negateButton,display,firstNumber,operator, secondNumber);
 commaButtonListener(commaButton,display,firstNumber, operator, secondNumber);
+backSpaceButtonListener(backspaceButton,display,firstNumber,operator,secondNumber);
