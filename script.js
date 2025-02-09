@@ -324,6 +324,18 @@ function setKeyboardNumbersListener(arrayNumber, firstNumber, operator, secondNu
 }
 
 
+// (Array, Object, Object, Object, divElement) -> ()
+// To listen keyboard event from keypress of [x, /, +, -, =] and then do calculation
+function setKeyboardOperatorListener(arrayOperator, firstNumber, operator, secondNumber, display) {
+    document.addEventListener("keydown", function(event) {
+        if (arrayOperator.includes(event.key)) {
+            setOperationLogic(firstNumber,operator,secondNumber, event.key, display);
+            display.textContent = displayAll(firstNumber,operator, secondNumber);
+        }
+    })
+}
+
+
 
 // Function Call Execution
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -335,3 +347,4 @@ negateButtonListener(negateButton,display,firstNumber,operator, secondNumber);
 commaButtonListener(commaButton,display,firstNumber, operator, secondNumber);
 backSpaceButtonListener(backspaceButton,display,firstNumber,operator,secondNumber);
 setKeyboardNumbersListener(numbersArray, firstNumber, operator,secondNumber, display);
+setKeyboardOperatorListener(operatorArray, firstNumber, operator, secondNumber, display);
