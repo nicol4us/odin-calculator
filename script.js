@@ -26,7 +26,7 @@ let secondNumber = {value : "", isActive : false, isCommaOn : false};
 function setNumbersListener(arrayNumber, firstNumber, secondNumber, operator, displayElement) {
     arrayNumber.forEach(element => {
         element.addEventListener("click", function() {
-            setNumber(whichActive(firstNumber, secondNumber), element);            
+            setNumber(whichActive(firstNumber, secondNumber), element.textContent);            
             displayElement.textContent = displayAll(firstNumber, operator, secondNumber);
             
         })
@@ -45,17 +45,17 @@ function whichActive(firstNumber, secondNumber) {
         else return null;    
 }
 
-// (Object, buttonElement) -> ()
+// (Object, String) -> ()
 // To add number into display
-function setNumber(number, element) {
+function setNumber(number, buttonValue) {
     if(number === null || number === undefined) {
         number.value = number.value ;
     }
-    else if(number.value === "0" && element.textContent === "0") {
+    else if(number.value === "0" && buttonValue === "0") {
         number.value = number.value;
     }
     else {
-        number.value = number.value + element.textContent;
+        number.value = number.value + buttonValue;
     }
 }
 
