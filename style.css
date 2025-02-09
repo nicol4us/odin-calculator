@@ -53,4 +53,12 @@ h2 {
     background-color: goldenrod;
 }
 
+.number:active, #negate:active, #comma:active {
+    background-color: blue;
+}
+
+#clear:active, #backspace:active, .operator:active {
+    background-color: gold;
+}
+
     
