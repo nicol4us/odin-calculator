@@ -8,6 +8,7 @@ const clearButton = document.querySelector("#clear");
 const backspaceButton = document.querySelector("#backspace"); 
 const negateButton = document.querySelector("#negate");
 const commaButton = document.querySelector("#comma");
+const numbersArray = [0,1,2,3,4,5,6,7,8,9]
 
 
 // Variable Declarations
@@ -309,6 +310,9 @@ function removeCharacter(firstNumber, operator, secondNumber) {
             break;
     }
 }
+
+// (Object, Object, Object, divElement) -> ()
+// To listen keyboard event from keypress number 0 to 9 and add it into display
 
 
 
