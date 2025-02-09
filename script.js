@@ -8,7 +8,7 @@ const clearButton = document.querySelector("#clear");
 const backspaceButton = document.querySelector("#backspace"); 
 const negateButton = document.querySelector("#negate");
 const commaButton = document.querySelector("#comma");
-const numbersArray = [0,1,2,3,4,5,6,7,8,9]
+const numbersArray = ["0","1","2","3","4","5","6","7","8","9"]
 
 
 // Variable Declarations
@@ -311,8 +311,16 @@ function removeCharacter(firstNumber, operator, secondNumber) {
     }
 }
 
-// (Object, Object, Object, divElement) -> ()
+// (Array, Object, Object, Object, divElement) -> ()
 // To listen keyboard event from keypress number 0 to 9 and add it into display
+function setKeyboardNumbersListener(arrayNumber, firstNumber, operator, secondNumber, display) {
+    document.addEventListener("keydown", function(event) {
+        if(arrayNumber.includes(event.key)) {
+            setNumber((whichActive(firstNumber, secondNumber)),event.key);
+            display.textContent = displayAll(firstNumber, operator, secondNumber);
+        }
+    })
+}
 
 
 
@@ -325,3 +333,4 @@ clearButtonListener(clearButton, display,firstNumber, operator, secondNumber);
 negateButtonListener(negateButton,display,firstNumber,operator, secondNumber);
 commaButtonListener(commaButton,display,firstNumber, operator, secondNumber);
 backSpaceButtonListener(backspaceButton,display,firstNumber,operator,secondNumber);
+setKeyboardNumbersListener(numbersArray, firstNumber, operator,secondNumber, display);
