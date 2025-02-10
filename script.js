@@ -110,7 +110,7 @@ function calculate(firstNumber, operator, secondNumber, nextOperator) {
             setVariableStatus(operate(operator.value, firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber, "-");
             break;
         case "=":
-            setVariableStatus(operate(operator.value, firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber, "");
+            setVariableStatus(operate(operator.value, firstNumber.value, secondNumber.value), firstNumber, operator, secondNumber, "");            
             break;
     }
 
@@ -187,9 +187,8 @@ function multiply(firstNumber, secondNumber) {
 
 // (String, String) -> Float
 // To divide two number given a string
-function divide(firstNumber, secondNumber) {
-    const roundNumber = getRoundNumber("/", firstNumber, secondNumber)    
-    return (Number.parseFloat(firstNumber) / Number.parseFloat(secondNumber));
+function divide(firstNumber, secondNumber) {     
+    return (Number.parseFloat(firstNumber) / Number.parseFloat(secondNumber)).toString();
 }
 
 
@@ -265,10 +264,10 @@ function setCommaButton(objectNumber, button) {
 
 // (String, String, String) -> Number
 // To round number for long decimal according to math operation
-function getRoundNumber(typeOperation, number1, number2) {
-    const getArrayNumberOne = number1.split(".");
+function getRoundNumber(typeOperation, number1, number2) {  
+    const getArrayNumberOne = number1.split(".");    
     const lengthFirst = (getArrayNumberOne[1] === undefined) ? 0 : getArrayNumberOne[1].length;
-    const getArrayNumberTwo = number2.split(".");
+    const getArrayNumberTwo = number2.split(".");    
     const lengthSecond = (getArrayNumberTwo[1] === undefined) ? 0 : getArrayNumberTwo[1].length;
     switch (typeOperation) {
         case ("x"):
