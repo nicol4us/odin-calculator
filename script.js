@@ -335,6 +335,17 @@ function setKeyboardOperatorListener(arrayOperator, firstNumber, operator, secon
     })
 }
 
+//(divElement, Object, Object, Object) -> ()
+// To activate keyboard listener for Backspace keyboard button
+function setKeyboardBackspaceListener(display, firstNumber, operator, secondNumber) {
+    document.addEventListener("keydown", function(event) {
+        if(event.key === "Backspace") {
+            removeCharacter(firstNumber,operator, secondNumber);
+            display.textContent = displayAll(firstNumber, operator, secondNumber);
+        }
+    })
+}
+
 
 
 // Function Call Execution
@@ -348,3 +359,4 @@ commaButtonListener(commaButton,display,firstNumber, operator, secondNumber);
 backSpaceButtonListener(backspaceButton,display,firstNumber,operator,secondNumber);
 setKeyboardNumbersListener(numbersArray, firstNumber, operator,secondNumber, display);
 setKeyboardOperatorListener(operatorArray, firstNumber, operator, secondNumber, display);
+setKeyboardBackspaceListener(display, firstNumber, operator, secondNumber)
