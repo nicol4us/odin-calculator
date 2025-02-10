@@ -189,7 +189,7 @@ function multiply(firstNumber, secondNumber) {
 // To divide two number given a string
 function divide(firstNumber, secondNumber) {
     const roundNumber = getRoundNumber("/", firstNumber, secondNumber)    
-    return (Number.parseFloat(firstNumber) / Number.parseFloat(secondNumber)).toFixed(roundNumber);
+    return (Number.parseFloat(firstNumber) / Number.parseFloat(secondNumber));
 }
 
 
