@@ -28,6 +28,7 @@ h2 {
     margin-right: 8px;
     text-align: right;
     font-size: 36px;
+    overflow: auto;
 }
 
 .horizontal-container {
